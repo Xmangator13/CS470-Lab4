@@ -1,3 +1,7 @@
+//Xavier Santiago
+//CS470
+//12/1/2025
+//Honor Code: "I pledge that this submission is solely my work, and that I have neither given to nor received help from anyone other than the instructor or TA’s."
 #include "Xavier_libFS.h"
 #include <stdlib.h>
 
@@ -41,4 +45,5 @@ int fileClose(FILE *fp) {
 // Delete file
 int fileDelete(const char *filename) {
     return remove(filename);
+
 }
