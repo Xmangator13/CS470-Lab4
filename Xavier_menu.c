@@ -62,7 +62,8 @@ int main() {
                         printf("Introduction written.\n");
                     else
                         printf("Error writing to file.\n");
-                } else {
+                } 
+                else {
                     printf("No file open. Please open first.\n");
                 }
                 break;
@@ -70,9 +71,12 @@ int main() {
             // Read file contents
             case 4:
                 if (fp) {
+                    // Move file pointer back to the beginning
+                    rewind(fp);
                     printf("\n--- File Contents ---\n");
                     fileRead(fp);
-                } else {
+                } 
+                else {
                     printf("No file open. Please open first.\n");
                 }
                 break;
@@ -83,7 +87,8 @@ int main() {
                     fileClose(fp);
                     fp = NULL;
                     printf("File closed.\n");
-                } else {
+                } 
+                else {
                     printf("No file open.\n");
                 }
                 break;
@@ -112,4 +117,5 @@ int main() {
         }
     }
 }
+
 
