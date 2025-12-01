@@ -1,3 +1,7 @@
+//Xavier Santiago
+//CS470
+//12/1/2025
+//Honor Code: "I pledge that this submission is solely my work, and that I have neither given to nor received help from anyone other than the instructor or TA’s."
 #ifndef XAVIER_LIBFS_H
 #define XAVIER_LIBFS_H
 
@@ -10,5 +14,6 @@ int fileWrite(FILE *fp, const char *data);
 int fileRead(FILE *fp);
 int fileClose(FILE *fp);
 int fileDelete(const char *filename);
+
 
 #endif
