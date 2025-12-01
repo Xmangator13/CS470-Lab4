@@ -10,18 +10,17 @@ all: Xavier_testapp
 	@echo "--------------------------------------------------"
 
 #Link objects into executable
-Xavier_testapp: Xavier_libFS.o Xavier_testFS.o
-	$(CC) $(CFLAGS) -o Xavier_testapp Xavier_libFS.o Xavier_testFS.o
+Xavier_testapp: Xavier_libFS.o Xavier_menu.o
+	$(CC) $(CFLAGS) -o Xavier_testapp Xavier_libFS.o Xavier_menu.o
 
 #Compile library source
 Xavier_libFS.o: Xavier_libFS.c Xavier_libFS.h
 	$(CC) $(CFLAGS) -c Xavier_libFS.c
 
-#Compile test application source
-Xavier_testFS.o: Xavier_testFS.c Xavier_libFS.h
-	$(CC) $(CFLAGS) -c Xavier_testFS.c
+#Compile menu driver source
+Xavier_menu.o: Xavier_menu.c Xavier_libFS.h
+	$(CC) $(CFLAGS) -c Xavier_menu.c
 
 #Clean up build artifacts
 clean:
 	rm -f *.o Xavier_testapp
-
