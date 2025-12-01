@@ -2,22 +2,26 @@
 CC = gcc
 CFLAGS = -Wall -g
 
-#Target executable
-TARGET = Lab4
+#Default target
+all: Xavier_testapp
+	@echo "--------------------------------------------------"
+	@echo "Build complete!"
+	@echo "To run the program, type: ./Xavier_testapp"
+	@echo "--------------------------------------------------"
 
-#Object files
-OBJS = Xavier_libFS.o Xavier_menu.o
+#Link objects into executable
+Xavier_testapp: Xavier_libFS.o Xavier_testFS.o
+	$(CC) $(CFLAGS) -o Xavier_testapp Xavier_libFS.o Xavier_testFS.o
 
-#Default rule
-all: $(TARGET)
-
-#Link object files into final executable
-$(TARGET) : $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
-#compile library into object file
-Lab4_libFS.o: Xavier_libFS.c Xavier_libFS.h
+#Compile library source
+Xavier_libFS.o: Xavier_libFS.c Xavier_libFS.h
 	$(CC) $(CFLAGS) -c Xavier_libFS.c
-#compile menu driver into object file
-Lab4_menu.o: Xavier_menu.c Xavier_libFS.h
-	$(CC) $(CFLAGS) -c Xavier_menu.c
+
+#Compile test application source
+Xavier_testFS.o: Xavier_testFS.c Xavier_libFS.h
+	$(CC) $(CFLAGS) -c Xavier_testFS.c
+
+#Clean up build artifacts
+clean:
+	rm -f *.o Xavier_testapp
 
